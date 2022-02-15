@@ -1,0 +1,23 @@
+{
+    "name": "Wordle Solver",
+    "description": "Simple wordle solver extension for Google Chrome",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["storage", "tabs"],
+    "content_scripts": [
+      {
+        "matches": ["https://www.nytimes.com/games/wordle/index.html"],
+        "js": ["wordle-plugin.iife.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "/logos/wordle_logo_16_x_16.png",
+        "32": "/logos/wordle_logo_32_x_32.png",
+        "48": "/logos/wordle_logo_48_x_48.png",
+        "128": "/logos/wordle_logo_128_x_128.png",
+        "192": "/logos/wordle_logo_192_x_192.png"
+      }
+    }
+  }
