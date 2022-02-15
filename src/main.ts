@@ -1,5 +1,5 @@
 import "tailwindcss/tailwind.css";
-import { CHROME_LOCAL_STORAGE_KEY } from './constants';
+import { CHROME_LOCAL_STORAGE_KEY, NYTIMES_WORDLE_URL } from './constants';
 import './style.css';
 
 const getWordleText = (solution: string): string => {
@@ -11,7 +11,7 @@ const getWordleText = (solution: string): string => {
 const getWordleData = async () => {
   const tabs = await chrome.tabs.query({active: true, lastFocusedWindow: true});
   const focusedTab: any = tabs[0];
-  if(focusedTab.url.includes('www.nytimes.com/games/wordle')) {
+  if(focusedTab.url.includes(NYTIMES_WORDLE_URL)) {
     const result = await chrome.storage.local.get(CHROME_LOCAL_STORAGE_KEY);
     const wordleData: any = JSON.parse(result[CHROME_LOCAL_STORAGE_KEY]);
     try {
